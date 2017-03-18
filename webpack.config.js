@@ -1,11 +1,27 @@
 var webpack = require('webpack');
 var path = require('path');
 
+const VENDER_LIBS = [
+  'faker',
+  'lodash',
+  'react',
+  'react-dom',
+  'react-input-range',
+  'react-redux',
+  'react-router',
+  'redux',
+  'redux-form',
+  'redux-thunk',
+];
+
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    bundle: './src/index.js',
+    vendor: VENDER_LIBS,
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
